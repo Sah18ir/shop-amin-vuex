@@ -1,0 +1,529 @@
+/* font */
+
+@import url(//db.onlinewebfonts.com/c/7296ae79f6faca68798b00fbbbee4c22?family=Yekan+Bakh);
+
+/* css reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Yekan Bakh";
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* regular styles */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black !important;
+}
+
+/* width styles */
+
+.S-width-all {
+  width: 100%;
+}
+
+.S-width-eighty {
+  width: 80%;
+}
+
+.S-width-sixty {
+  width: 60%;
+}
+
+.S-width-half {
+  width: 50%;
+}
+
+.S-width-reg {
+  width: 30%;
+}
+
+.S-width-twenty {
+  width: 20px;
+}
+
+.S-width-twentyf {
+  width: 24px;
+}
+
+.S-width-thirtyt {
+  width: 32px;
+}
+
+.S-width-reg-pic {
+  width: 100px;
+}
+
+.S-width-pic {
+  width: 150px;
+}
+
+.S-width-regular-all {
+  width: 220px;
+}
+
+.S-width-twohun {
+  width: 250px;
+}
+
+.width-normal {
+  width: 900px;
+}
+
+.S-width-head {
+  width: 320px;
+}
+
+/* height styles */
+
+.S-height-all {
+  width: 100vh;
+}
+
+/* font size */
+
+.S-fosize-sm {
+  font-size: 12px;
+}
+
+.S-fosize-m {
+  font-size: 15px;
+}
+
+.S-fosize-big {
+  font-size: 20px;
+}
+
+/* padding */
+
+.S-pad-sad {
+  padding: 100px;
+}
+
+.S-pad-fifty {
+  padding: 50px;
+}
+
+.S-pad-twentyfive {
+  padding: 25px;
+}
+
+.S-pad-twenty {
+  padding: 20px;
+}
+
+.S-pad-fifteen {
+  padding: 15px;
+}
+
+.S-pad-ten {
+  padding: 10px;
+}
+
+.pad {
+  padding: 3rem;
+}
+
+.S-pad-top-ten {
+  padding-top: 10px;
+}
+
+.S-pad-bot-ten {
+  padding-bottom: 10px;
+}
+
+.S-pad-right-ten {
+  padding-right: 10px;
+}
+
+.S-pad-left-twenty {
+  padding-left: 20px;
+}
+
+.S-pad-right-twenty {
+  padding-right: 20px;
+}
+
+.S-padleftright-regular {
+  padding: 1rem 3rem;
+}
+
+.S-padall-regular {
+  padding: 2rem 0;
+}
+
+.S-padall-nim {
+  padding: 0.5rem;
+}
+
+.S-pad-top-regular {
+  padding-top: 2rem;
+}
+
+.S-pad-top-onerem {
+  padding-top: 1rem;
+}
+
+.S-pad-bot-regular {
+  padding-bottom: 1rem;
+}
+
+.S-pad-bot-large {
+  padding-bottom: 3rem;
+}
+
+.color-gray {
+  color: gray;
+}
+
+/* margin */
+
+.S-mar-sad {
+  margin: 100px;
+}
+
+.S-mar-fifty {
+  margin: 50px;
+}
+
+.S-mar-twentyfive {
+  margin: 25px;
+}
+
+.S-mar-twenty {
+  margin: 20px;
+}
+
+.S-mar-ten {
+  margin: 10px;
+}
+
+.S-mar-top-ten {
+  margin-top: 13.5px;
+}
+
+.S-mar-top-half-reg {
+  margin-top: 1.5rem;
+}
+
+.S-mar-top-half-two {
+    margin-top: 2.5rem;
+  }
+
+.S-mar-top-twenty {
+  margin-top: 3rem;
+}
+
+.S-mar-right-half {
+  margin-right: 0.5rem;
+}
+
+.S-mar-right-regular {
+  margin-right: 1.5rem;
+}
+
+.S-mar-bottom-regular {
+  margin-bottom: 2rem;
+}
+
+.S-mar-right-me {
+  margin-right: 3rem;
+}
+
+.S-mar-left-half {
+  margin-left: 1rem;
+}
+
+.S-mar-top-reg {
+  margin-top: 5rem;
+}
+
+.S-mar-top-reg-mine {
+  margin-top: 1rem;
+}
+
+.S-mar-top-min {
+  margin-top: 0.3rem;
+}
+
+.S-margin-auto {
+  margin: 20px auto;
+}
+
+.S-margin-auto-reg {
+  margin: 10px auto;
+}
+
+/* border styles */
+
+.S-border-regular {
+  border: 1.6px solid black;
+}
+
+.S-border-regular-gray {
+  border: 1px solid gray;
+}
+
+.S-border-radi {
+  border-radius: 20px;
+}
+
+.S-border-radi-top-right {
+  border-top-right-radius: 20px;
+}
+
+.S-border-radi-bottom-right {
+  border-bottom-right-radius: 20px;
+}
+
+.S-good-border-left {
+  border-left: 1.6px solid #bdc0bfe6;
+}
+
+.S-good-border-bottom {
+  border-bottom: 1.6px solid #bdc0bfe6;
+}
+
+.S-regular-border-bottom {
+  border-bottom: 1px solid lightgray;
+}
+
+.S-regular-border-top {
+  border-top: 1px solid lightgray;
+}
+
+.S-good-border-right {
+  border-right: 1.6px solid #bdc0bfe6;
+}
+
+.S-thin-border-right {
+  border-right: 1px solid #ddd;
+}
+
+.S-good-border-both {
+  border-left: 1.6px solid #bdc0bfe6;
+  border-right: 1.6px solid #bdc0bfe6;
+}
+
+/* position */
+
+.S-posit-ab {
+  position: absolute;
+}
+
+.S-posit-re {
+  position: relative;
+}
+
+.S-posit-fix {
+  position: fixed;
+}
+
+/* display */
+
+.S-displa-in {
+  display: inline-block;
+}
+
+.S-displa-block {
+  display: block;
+}
+
+.S-displa-flex {
+  display: flex;
+}
+
+.S-displa-inflex {
+  display: inline-flex;
+}
+
+.S-display-none {
+  display: none;
+}
+
+/* flex  */
+
+.S-space-bet {
+  justify-content: space-between;
+}
+
+.S-space-around {
+  justify-content: space-around;
+}
+
+.S-space-evenly {
+  justify-content: space-evenly;
+}
+
+.S-all-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.S-all-flex-reg {
+  display: flex;
+  justify-content: space-between;
+}
+
+.S-all-flex-even {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.S-all-flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.S-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.S-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.S-gap-fifty {
+  gap: 50px;
+}
+
+/* images */
+
+.S-filter-grayscale {
+  filter: grayscale(100%);
+}
+
+.S-filter-grayscale:hover {
+  filter: grayscale(0);
+  transition: 0.3s all ease-in-out;
+}
+
+.S-image-mix {
+  mix-blend-mode: multiply;
+}
+
+/* media query */
+
+@media screen and (max-width: 576px) {
+  .S-all-flex-res {
+    flex-wrap: wrap;
+  }
+  .margin-top-dives-res {
+    margin-top: 3rem;
+  }
+  .width-sad-res {
+    width: 100%;
+  }
+  .pad-zero-res {
+    padding: 0;
+  }
+  .display-none-res {
+    display: none;
+  }
+  .display-block-res {
+    display: block;
+  }
+}
+
+/* float */
+
+.S-float-right {
+  float: right;
+}
+
+.S-float-left {
+  float: left;
+}
+
+/* background */
+
+.S-back-red {
+  background-color: red;
+}
+
+.S-back-white {
+  background-color: white;
+}
+
+.S-back-black {
+  background-color: black;
+}
+
+.S-back-grey {
+  background-color: grey;
+}
+
+.S-back-lightgrey {
+  background-color: lightgrey;
+}
+
+/* color */
+
+.S-color-white {
+  color: white;
+}
+
+.S-color-red {
+  color: #eb1c23;
+}
+
+.S-color-black {
+  color: black;
+}
+
+.S-color-graylike {
+  color: #666666;
+}
+
+/* font styles */
+
+.S-font-light {
+  font-weight: lighter;
+}
+
+/* words */
+
+.word-space-reg {
+  word-spacing: 2px;
+}
+
+.bolder-word {
+  font-weight: bolder;
+}
+
+.lighter-word {
+  font-weight: lighter;
+}
+
+.align-justify {
+  text-align: justify;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+

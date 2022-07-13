@@ -26,9 +26,9 @@
       </button>
       <details class="part_list_detail_hamburgersidenavmenu">
           <ul class="list_Show_part_list_detail_hamburgersidenavmenu">
-            <li>زنانه</li>
-            <li>مردانه</li>
-            <li>اکسسوری</li>
+            <router-link to="/Products"><li>زنانه</li></router-link>
+            <router-link to="/Products"><li>مردانه</li></router-link>
+            <router-link to="/Products"><li>اکسسوری</li></router-link>
           </ul>
           <summary class="S-all-flex">
             <h5>همه دسته بندی ها</h5>
@@ -37,40 +37,10 @@
             />
           </summary>
         </details>
-        <details class="part_list_detail_hamburgersidenavmenu">
-          <ul class="list_Show_part_list_detail_hamburgersidenavmenu">
-            <details class="part_list_detail_hamburgersidenavmenu list_mini">
-              <ul class="list_Show_part_list_detail_hamburgersidenavmenu">
-                <li>خانگی</li>
-                <li>مجلسی</li>
-                <li>بیرونی</li>
-                <li>ورزشی</li>
-                <li>لباس شب</li>
-              </ul>
-              <summary class="S-all-flex S-mar-top-reg-mine">
-                <ul class="title_clothes_hamburgersidenavmenu">
-                  <li>پوشاک</li>
-                </ul>
-                <left-arrow-chevron
-                  class="left_chevron_part_list_detail_hamburgersidenavmenu_next"
-                />
-              </summary>
-            </details>
-          </ul>
-          <summary class="S-all-flex S-mar-top-half-two">
-            <ul class="title_woman_hamburgersidenavmenu">
-              <li>زنانه</li>
-            </ul>
-            <left-arrow-chevron
-              class="left_chevron_part_list_detail_hamburgersidenavmenu_end"
-            />
-          </summary>
-        </details>
         <ul class="list_types_all_hamburgersidenavmenu">
-          <li>مردانه</li>
-          <li>بلاگ</li>
-          <li>درباره با ما</li>
-          <li>تماس با ما</li>
+          <router-link to="/Products"><li>بلاگ</li></router-link>
+          <router-link to="/Products"><li>درباره با ما</li></router-link>
+          <router-link to="/Products"><li>تماس با ما</li></router-link>
         </ul>
     </div>
     <span style="font-size: 30px; cursor: pointer" @click="openNav()">

@@ -377,6 +377,12 @@ a {
   justify-content: space-between;
 }
 
+.S-all-flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .S-all-flex-reg {
   display: flex;
   justify-content: space-between;

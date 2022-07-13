@@ -184,7 +184,6 @@ export default {
     // part product detail
     onMounted(() => {
       getProduct();
-      addToCart();
     });
     let product = computed(() => {
       return store.getters.getProduct;
@@ -194,7 +193,7 @@ export default {
     }
     function addToCart() {
       store.dispatch("addProductsToCart" , {
-        product : self.product,
+        product : product.value,
         quantity: 1
       });
     }

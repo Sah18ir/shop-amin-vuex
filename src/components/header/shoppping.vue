@@ -23,25 +23,43 @@
       </div>
       <div class="number_shopping S-all-flex">
         <h2>سبد خرید</h2>
-        <span class="basket-num">۰</span>
+        <span class="basket-num">{{ getCartItemCount }}</span>
+        <h4>نوع کالا</h4>
+        <div class="clear_all_products_sidebar_cart">
+          <button @click.prevent="clearCartItems()">حذف همه</button>
+        </div>
       </div>
       <div class="show_basket_value">
         <img
           src="https://s6.uupload.ir/files/icons8-basket-96_sh5d.png"
           alt=""
+          class="image_big_basket_sidenav_shopping"
         />
-        <template v-if="product">
-          <div v-for="(item, index) in cart" :key="index">
-            <h4>{{ item.product.title }}</h4>
-            <!-- <h3>{{ item.product.quantity }} x {{ item.product.price }}</h3> -->
-            <!-- <span>تومان</span> -->
-            <!-- <img :src="cart.product.major_image.conversions.lg" /> -->
+        <div
+          v-for="item in cart"
+          :key="item.product.id"
+          class="showing_shopping_cart"
+        >
+          <img :src="item.product.major_image.conversions.lg" />
+          <h4>{{ item.product.title }}</h4>
+          <h3 class="S-all-flex">
+            {{ item.product.price }}
+            <h5>تومان</h5>
+          </h3>
+          <div class="S-all-flex box_number_remove_product">
+            <h4>تعداد : {{ item.quantity }}</h4>
+            <div
+              class="remove_product_cart"
+              @click.prevent="removeProductFromCart(item.product)"
+            >
+              <trash-icon />
+            </div>
           </div>
-        </template>
+        </div>
         <div class="go_shopping_btn">
           <button>
-            <router-link to="/">
-              <h5>رفتن به فروشگاه آنلاین</h5>
+            <router-link to="/ShopCart">
+              <h5>مشاهده سبد خرید</h5>
             </router-link>
           </button>
         </div>
@@ -61,14 +79,14 @@
 <script>
 import { useStore } from "vuex";
 import { computed } from "vue";
+import trashIcon from "../../assets/svg/trash-icon.vue";
 let self;
 export default {
+  components: { trashIcon },
   name: "NovincharmShoppping",
   data() {
     return {
       cart: [],
-      product: null,
-      products: [],
     };
   },
   created() {
@@ -76,6 +94,12 @@ export default {
   },
 
   mounted() {},
+
+  computed: {
+    getCartItemCount() {
+      return this.$store.getters.getCartItemCount;
+    },
+  },
 
   methods: {
     openNav() {
@@ -95,7 +119,13 @@ export default {
     let cart = computed(() => {
       return store.state.cart;
     });
-    return { cart };
+    function removeProductFromCart(product) {
+      store.dispatch("removeProductFromCart", product);
+    }
+    function clearCartItems() {
+      store.dispatch("clearCartItems");
+    }
+    return { cart, removeProductFromCart , clearCartItems };
   },
 };
 </script>
@@ -180,19 +210,32 @@ export default {
 }
 
 .number_shopping {
-  width: 120px;
+  width: 230px;
+}
+
+.number_shopping h4 {
+  margin-top: 1rem;
+}
+
+.go_shopping_btn {
+  padding-bottom: 2rem;
 }
 
 .go_shopping_btn button {
-  background-color: #58595b;
   margin-top: 1.2rem;
+  background-color: #58595b;
+  font-weight: bolder;
 }
 
 .go_shopping_btn button h5 {
   color: white;
-  font-weight: lighter;
   margin-right: 1.2rem;
   font-size: 15px;
+}
+
+.go_shopping_btn button:hover {
+  background-color: #eb1c23;
+  transition: 0.8s ease;
 }
 
 .show_basket_value {
@@ -202,6 +245,60 @@ export default {
 .show_basket_value h3 {
   color: #aaaaaa;
   font-weight: lighter;
+}
+
+.showing_shopping_cart img {
+  width: 80px;
+}
+
+.showing_shopping_cart h5 {
+  color: black;
+}
+
+.showing_shopping_cart h4 {
+  font-size: 0.9rem;
+}
+
+.showing_shopping_cart h3 {
+  color: fuchsia;
+  font-weight: bold;
+  width: 80px;
+  margin: 0 auto;
+}
+
+.image_big_basket_sidenav_shopping {
+  width: 80px;
+}
+
+.box_number_remove_product {
+  width: 67px;
+  margin: 0 auto;
+}
+
+.remove_product_cart {
+  cursor: pointer;
+  margin-top: 0.2rem;
+}
+
+.remove_product_cart svg {
+  width: 19px;
+}
+
+.clear_all_products_sidebar_cart {
+  margin-top: 1rem;
+}
+
+.clear_all_products_sidebar_cart button {
+  background: #EB1C23;
+  padding: 0.3rem;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.clear_all_products_sidebar_cart button:hover {
+  background: red;
+  transition: .5s all; 
 }
 
 @media screen and (max-height: 450px) {

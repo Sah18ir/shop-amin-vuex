@@ -4,13 +4,15 @@
       <nav>
         <div>
           <ul>
-            <router-link to="/" class="S-all-flex S-flex-wrap">
+            <div to="/" class="S-all-flex S-flex-wrap">
               <li
                 class="list_nav_first_page_main"
                 v-for="(item, index) in navlist"
                 :key="index"
               >
-                <h4>{{ item.navtitle }}</h4>
+                <router-link to="/Products" class="S-all-flex">
+                  <h4>{{ item.navtitle }}</h4>
+                </router-link>
                 <div>
                   <ul class="box_big_nav" v-if="item.existli">
                     <router-link to="/Products" class="S-all-flex">
@@ -28,7 +30,9 @@
                         v-for="(nextitem, index) in item.navlistnext"
                         :key="index"
                       >
-                        <h4 class="S-color-black">{{ nextitem.navtitlenext }}</h4>
+                        <h4 class="S-color-black">
+                          {{ nextitem.navtitlenext }}
+                        </h4>
                       </li>
                     </router-link>
                     <router-link to="/Products" class="S-all-flex">
@@ -46,7 +50,9 @@
                         v-for="(nextitem, index) in item.navlistnext"
                         :key="index"
                       >
-                        <h4 class="S-color-black">{{ nextitem.navtitlenext }}</h4>
+                        <h4 class="S-color-black">
+                          {{ nextitem.navtitlenext }}
+                        </h4>
                       </li>
                     </router-link>
                     <router-link to="/Products">
@@ -55,13 +61,15 @@
                         v-for="(nextitem, index) in item.navlistnexttools"
                         :key="index"
                       >
-                        <h4 class="S-color-black">{{ nextitem.navtitlenext }}</h4>
+                        <h4 class="S-color-black">
+                          {{ nextitem.navtitlenext }}
+                        </h4>
                       </li>
                     </router-link>
                   </ul>
                 </div>
               </li>
-            </router-link>
+            </div>
           </ul>
         </div>
       </nav>
@@ -85,7 +93,7 @@ export default {
           existli: "_",
           navlistnext: [
             {
-              navtitlenext: "کت مردانه",
+              navtitlenext: "لباس مردانه",
             },
             {
               navtitlenext: "کیف پاسپورتی",
@@ -106,7 +114,7 @@ export default {
           existli: "_",
           navlistnext: [
             {
-              navtitlenext: "کت زنانه",
+              navtitlenext: "لباس زنانه",
             },
             {
               navtitlenext: "کیف کمری",
@@ -166,7 +174,7 @@ export default {
 .nav_page_main {
   width: 100%;
   height: 3.7vh;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .nav_page_main section {
@@ -208,7 +216,7 @@ export default {
 .box_big_nav {
   width: 94.6%;
   transform: scaleY(0);
-  transition: .5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
   transform-origin: top;
   z-index: 3;
   position: absolute;
@@ -216,13 +224,13 @@ export default {
   line-height: 37px;
   text-align: center;
   margin-top: 2px;
-  padding: 3.5rem;
-  padding-top: 3rem;
+  padding: 27px;
+  padding-top: 1.5rem;
   background-color: #fefefeef;
 }
 
 @media screen and (max-width: 1000px) {
-  .nav_page_main{
+  .nav_page_main {
     display: none;
   }
 }

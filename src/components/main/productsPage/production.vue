@@ -3,15 +3,14 @@
     <article class="S-all-flex">
       <div class="S-all-flex box_select_search">
         <select name="" id="selected_filter_price">
-          <option value="" selected>مرتب سازی بر اساس : جدیدترین ها</option>
-          <option value="">مرتب سازی بر اساس : قیمت کم به زیاد</option>
-          <option value="">مرتب سازی بر اساس : قیمت زیاد به کم</option>
-          <option value="">مرتب سازی بر اساس : محبوب ترین ها</option>
-          <option value="">مرتب سازی بر اساس : پربازدید ترین ها</option>
-          <option value="">مرتب سازی بر اساس : پرفروش ترین ها</option>
-          <option value="">مرتب سازی بر اساس : پرفروش ترین ها</option>
-          <option value="">مرتب سازی بر اساس : درصد تخفیف</option>
+          <option value="" selected>مرتب سازی بر اساس : پربازدید ترین</option>
+          <option value="">مرتب سازی بر اساس : ارزان ترین</option>
+          <option value="">مرتب سازی بر اساس : گران ترین</option>
+          <option value="" >مرتب سازی بر اساس : پرفروش ترین</option>
+          <option value="">مرتب سازی بر اساس : جدید ترین</option>
+          <option value="">مرتب سازی بر اساس : ویژه</option>
         </select>
+        <!-- <span @click="sortFilter('top_sales')">ads</span> -->
         <div class="S-all-flex box_find_search_products">
           <input
             class="find_products"
@@ -24,7 +23,7 @@
           </button>
         </div>
       </div>
-      <div class="S-all-flex">
+      <div class="S-all-flex all_squares_change_size">
         <a @click="changecolormenu()" v-on:click="toggleReverse()">
           <img
             src="https://s6.uupload.ir/files/icons8-squared-menu-24_y13a.png"
@@ -62,9 +61,9 @@
             :to="`/ProductDetail/${item.id}/${item.slug}`"
             @click="gotop()"
           >
-            <!-- <div class="add_to_basket">
-              <button>افزودن به سبد خرید</button>
-            </div> -->
+            <div class="add_to_basket">
+              <button>مشاهده</button>
+            </div>
           </router-link>
           <router-link
             :to="`/ProductDetail/${item.id}/${item.slug}`"
@@ -144,8 +143,6 @@ export default {
   },
   data() {
     return {
-      products: null,
-      listid: null,
       isHidden: false,
     };
   },
@@ -201,6 +198,7 @@ export default {
       filter.value.search = self.$route.query.search ?? "";
       return filter.value;
     }
+    // part page number products
     function clickCallback(pageNum) {
       self.$router.push(`/Products?page=${pageNum}`).then(() => {
         document
@@ -210,6 +208,13 @@ export default {
         getProducts();
       });
     }
+    // part filters products
+    function sortFilter(value){
+      store.commit("setSortName" , value);
+      store.commit("fetchTitle");
+      loaderFlag.value = true;
+    }
+    // part change size img products
     function toggle() {
       if (isHidden) {
         isHidden.value = true;
@@ -229,7 +234,8 @@ export default {
       clickCallback,
       isHidden,
       toggle,
-      toggleReverse
+      toggleReverse,
+      sortFilter
     };
   },
 };
@@ -304,7 +310,7 @@ export default {
 .add_to_basket button {
   width: 100%;
   padding: 1rem;
-  background-color: black;
+  background-color: #EB1C23;
   color: #fff;
   font-weight: bolder;
   cursor: pointer;
@@ -467,6 +473,10 @@ export default {
 .active {
   color: red;
   border-bottom: 2.3px solid transparent;
+}
+
+.all_squares_change_size img{
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1000px) {

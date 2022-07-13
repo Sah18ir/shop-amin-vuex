@@ -11,6 +11,8 @@ export default createStore({
     cart: [],
     product: null,
     title: null,
+    sortName: "",
+    categoryFilter: "",
   },
   mutations: {
     setProducts(state, list) {
@@ -22,8 +24,29 @@ export default createStore({
     setTitle(state, val) {
       state.title = val;
     },
-    setAddToCart(state, {product , quantity}) {
-      state.cart.push({product , quantity});
+    set_AddTo_Cart(state, { product, quantity }) {
+      let productInCart = state.cart.find((item) => {
+        return item.product.id === product.id;
+      });
+      if (productInCart) {
+        productInCart.quantity += quantity;
+        return;
+      }
+      state.cart.push({ product, quantity });
+    },
+    remove_Product_From_Cart(state, product) {
+      state.cart = state.cart.filter((item) => {
+        return item.product.id !== product.id;
+      });
+    },
+    clear_Cart_Items(state) {
+      state.cart = [];
+    },
+    setSortName(state, value) {
+      state.sortName = value;
+    },
+    set_category_filter(state, value) {
+      state.categoryFilter = value;
     },
   },
   actions: {
@@ -46,17 +69,27 @@ export default createStore({
     // get products to search
     async fetchTitle({ commit, state }) {
       await Axios.get(
-        `front/products?title=${
-          state.title != "" ? "&title=" + state.title : ""
-        }`
+        `front/products?${state.sortName != "" ? "sort=" + state.sortName : ""}
+          ${
+            state.categoryFilter != ""
+              ? "&category_id" + state.categoryFilter
+              : "2"
+          }
+        ${state.title != "" ? "&title=" + state.title : ""}`
       ).then((res) => {
         commit("setProducts", res.data.data.products);
       });
     },
     // get products to add to cart
-    addProductsToCart({commit}, {product , quantity}){
-      commit("setAddToCart" , {product , quantity})
-    }
+    addProductsToCart({ commit }, { product, quantity }) {
+      commit("set_AddTo_Cart", { product, quantity });
+    },
+    removeProductFromCart({ commit }, product) {
+      commit("remove_Product_From_Cart", product);
+    },
+    clearCartItems({ commit }) {
+      commit("clear_Cart_Items");
+    },
   },
   getters: {
     getProducts(state) {
@@ -65,8 +98,21 @@ export default createStore({
     getProduct(state) {
       return state.product;
     },
-    getCart(state) {
-      return state.product;
+    getCartItemCount(state) {
+      return state.cart.length;
+    },
+    getCartTotalPrice(state) {
+      let total = 0;
+      state.cart.forEach((item) => {
+        total += item.product.price * item.quantity;
+      });
+      return total;
+    },
+    getSortName(state) {
+      return state.sortName;
+    },
+    getCategoryFilter(state) {
+      return state.categoryFilter;
     },
   },
 });

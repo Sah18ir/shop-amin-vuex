@@ -6,11 +6,10 @@
           <option value="" selected>مرتب سازی بر اساس : پربازدید ترین</option>
           <option value="">مرتب سازی بر اساس : ارزان ترین</option>
           <option value="">مرتب سازی بر اساس : گران ترین</option>
-          <option value="" >مرتب سازی بر اساس : پرفروش ترین</option>
+          <option value="" @click="sortFilter('top_sales')">مرتب سازی بر اساس : پرفروش ترین</option>
           <option value="">مرتب سازی بر اساس : جدید ترین</option>
           <option value="">مرتب سازی بر اساس : ویژه</option>
         </select>
-        <!-- <span @click="sortFilter('top_sales')">ads</span> -->
         <div class="S-all-flex box_find_search_products">
           <input
             class="find_products"
@@ -212,7 +211,7 @@ export default {
     function sortFilter(value){
       store.commit("setSortName" , value);
       store.commit("fetchTitle");
-      loaderFlag.value = true;
+      // loaderFlag.value = true;
     }
     // part change size img products
     function toggle() {

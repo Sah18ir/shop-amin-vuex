@@ -45,9 +45,9 @@ export default createStore({
     setSortName(state, value) {
       state.sortName = value;
     },
-    set_category_filter(state, value) {
-      state.categoryFilter = value;
-    },
+    // set_category_filter(state, value) {
+    //   state.categoryFilter = value;
+    // },
   },
   actions: {
     // get products from server
@@ -111,8 +111,8 @@ export default createStore({
     getSortName(state) {
       return state.sortName;
     },
-    getCategoryFilter(state) {
-      return state.categoryFilter;
-    },
+    // getCategoryFilter(state) {
+    //   return state.categoryFilter;
+    // },
   },
 });
